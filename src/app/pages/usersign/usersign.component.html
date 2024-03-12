@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body  style="background-image: url('https://waymagazine.org/wp-content/uploads/2019/05/dog.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+<div *ngIf="users.length == 0">
+   
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="width: 40%; background-color: rgba(255, 255, 255, 0.7); padding: 10px; border-radius: 0px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <!--  -->
+            <form (ngSubmit)="register()" [formGroup]="frmRegister"  style="width: 80%; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+                <h1 style="text-align: center; font-size: 40px;">SIGNIN</h1><br>
+                <!-- <input id="username" class="form-control" type="text" formControlName="username" placeholder=" Username" #username style="margin-bottom: 10px; width: 100%; height: 40px; padding: 5px; border: none;"><br><br>
+                <input id="password" class="form-control" type="password" formControlName="password" placeholder=" Password" #password style="margin-bottom: 10px; width: 100%; height: 40px; padding: 5px; border: none;"><br> -->   
+                <div class="form-control">
+                   
+                    <input id="username"  type="text" formControlName="username" #username required>
+                    <label>
+                        <span style="transition-delay:0ms">U</span><span style="transition-delay:50ms">s</span><span style="transition-delay:100ms">e</span><span style="transition-delay:150ms">r</span><span style="transition-delay:200ms">n</span><span style="transition-delay:250ms">a</span><span style="transition-delay:300ms">m</span><span style="transition-delay:350ms">e</span>
+                    </label> 
+                </div><br>
+
+                <div class="form-control">
+                 
+                    <input  id="password"  type="password" formControlName="password" #password required>
+                    <label>
+                        <span style="transition-delay:0ms">P</span><span style="transition-delay:50ms">a</span><span style="transition-delay:100ms">s</span><span style="transition-delay:150ms">s</span><span style="transition-delay:200ms">w</span><span style="transition-delay:250ms">o</span><span style="transition-delay:300ms">r</span><span style="transition-delay:350ms">d</span>
+                    </label>   
+                </div>
+
+
+            </form> 
+            <button type="submit" (click)="register()">
+                <span class="circle1"></span>
+                <span class="circle2"></span>
+                <span class="circle3"></span>
+                <span class="circle4"></span>
+                <span class="circle5"></span>
+                <span class="text">signin</span>
+            </button><br>
+            <!-- <button type="submit" class="btn btn-primary" (click)="register()" style="margin-top: 40px; width: 40%; height: 40px; background-color: rgb(116, 252, 106); border: none; color: black; cursor: pointer; font-size: 30px;">signin</button><br> -->
+            
+
+
+              
+            <a (click)="back()"  style="margin-right: 75%; color: black; cursor: pointer; font-size: 20px;">back</a>
+        </div>
+    </div>
+    </div>    
+</body>
+</html>

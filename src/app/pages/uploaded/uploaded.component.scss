@@ -1,0 +1,37 @@
+.back-button {
+   
+    display: inline-block;
+    margin-right: 25px;
+    background-color:  rgba(138, 97, 255, 1);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5vw;
+    cursor: pointer;
+    margin-left: 55px; /* Adjust the margin-left value as needed */
+}
+  h1 {
+   
+    display: inline-block;
+    margin-top: 25px;
+    margin-left: 35%; /* ระยะห่างด้านซ้ายของข้อความ */
+    font-size: 2vw;
+    color: rgb(103, 68, 29);
+  }
+ 
+  .back-button1 {
+    display: inline-block;
+    margin-right: 25px;
+    background-color:  rgba(98, 242, 242, 1);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1vw;
+    cursor: pointer;
+    margin-left: 42%; /* Adjust the margin-left value as needed */
+}
+
+.im{
+    height: 250px;
+    width: 250px;
+}

@@ -1,0 +1,7 @@
+{
+    "liveshare.languages.allowGuestCommandControl": true,
+    "liveshare.notebooks.allowGuestExecuteCells": true,
+    "liveshare.alwaysFollowHost": true,
+    "liveshare.anonymousGuestApproval": "accept",
+    "liveshare.publishWorkspaceInfo": true
+}

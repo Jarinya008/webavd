@@ -1,0 +1,119 @@
+<html lang="en">
+<body>
+
+
+
+
+
+    <div >
+        <button class="back-button" (click)="goback()" >Back</button>
+        <h1 >UPLOAD IMAGE</h1>
+      </div>
+
+
+
+
+
+
+
+    <div style="display: flex; justify-content: center; ">
+        <div *ngFor="let pic of datapic"   style="position: relative; margin-right: 10px;">
+            <img  src="{{pic.url_image}}" alt="" class="im">
+            <button style="position: absolute; top: -30px; right: -20px; background-color: red; color: aliceblue;margin-right: 20px;  margin-top: 30px;" (click)="deletepic(pic.id_image)">x</button>
+            <p style="margin-left: 110px;">{{pic.name_image}}</p>
+            
+        </div>  
+    </div>
+<div style="display: flex; justify-content: center; ">
+    
+    <div *ngIf="datapic.length < 5" >
+    <form id="imageForm">
+        <input type="hidden" id="username" name="username" [(ngModel)]="username"><br><br>
+        <label for="name_image">Image Name:</label>
+        <input type="text" id="name_image" name="name_image" [(ngModel)]="name_image" required><br><br>
+        <label for="url_image">Image:</label>
+        <input type="file" id="url_image" name="url_image" accept="image/*" [(ngModel)]="url_image"
+            required><br><br>
+        <button type="button" class="btn btn-primary" (click)="upload()" class="back-button1" style="display: flex;" >Upload</button><br>
+    </form>
+    </div>  
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <div *ngIf="data.length > 0">
+        <button (click)="goback()">back</button>
+        <h1>{{ data[0].username }}</h1>
+        
+        <img src="{{this.image_bigin}}" alt="" width="150px">
+        
+        <div style="display: flex;">
+            <div *ngFor="let pic of datapic">
+                <button style="background-color: red; color: aliceblue;" (click)="deletepic(pic.id_image)">x</button>
+                <img src="{{pic.url_image}}" alt="" width="150px">
+                <p>{{pic.name_image}}</p>
+                
+            </div>
+            <div *ngIf="datapic.length < 5">
+            <form id="imageForm">
+                <input type="hidden" id="username" name="username" [(ngModel)]="username"><br><br>
+                <label for="name_image">Image Name:</label>
+                <input type="text" id="name_image" name="name_image" [(ngModel)]="name_image" required><br><br>
+                <label for="url_image">Image:</label>
+                <input type="file" id="url_image" name="url_image" accept="image/*" [(ngModel)]="url_image"
+                    required><br><br>
+                <button type="button" class="btn btn-primary" (click)="upload()">Upload</button><br>
+            </form>
+            </div>
+        </div>
+        <div>
+            <select id="menu" name="menu" (click)="goToPage()">
+                <option value="menuselect">menu</option>
+                <option value="editperson">แกไขข้อมูลส่วนตัว</option>
+                <option value="uploadpic">UPLOAD A PHOTO</option>
+                <option value="stat">สถิติ</option>
+                <option value="logout">LOGOUT</option>
+            </select>
+        </div>
+    </div>
+</body>
+
+</html> -->

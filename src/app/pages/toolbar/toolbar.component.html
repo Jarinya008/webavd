@@ -1,0 +1,49 @@
+ <!-- หน้าผู้ดูแล -->
+ <html lang="en">
+<body>
+    <mat-toolbar class="mat-toolbar">
+      <span style="color: rgb(103, 68, 29); font-size: 2vw; font-weight: bold;">FAJI ANIMALS</span>
+      <div style="display: flex; align-items: center;">
+          <span style="font-size: 1.5vw; color: rgb(103, 68, 29); margin-right: 2vw;"></span>
+          <img src="" style="height: 3vw; width: 3vw; border-radius: 50%; margin-right: 2vw;" />
+         
+          <mat-menu #menu="matMenu" >
+            <button mat-menu-item >menu</button>
+              <button mat-menu-item value="uploadpic">Uploaded a Photo</button>
+              <button mat-menu-item value="stat">สถิติ</button>
+              <button mat-menu-item value="editperson">แก้ไขข้อมูล</button>
+              <button mat-menu-item value="logout" >ออกจากระบบ</button>
+             
+          </mat-menu>
+          <button mat-icon-button [matMenuTriggerFor]="menu" style="background-color: transparent; border: none;">
+            <mat-icon style="font-size: 2vw; color: rgb(103, 68, 29);">menu</mat-icon>
+        </button>
+       
+      </div>
+  </mat-toolbar>
+
+
+  <!-- <h1>{{ data[0].username }}</h1>
+  <img src="{{this.data[0].image_avatar}}" alt="" width="150px">
+  <button (click)="logout()">logout</button> 
+  <div>
+      <select id="menu" name="menu" (click)="goToPage()">
+          <option value="menuselect">menu</option>
+          <option value="editperson">แกไขข้อมูลส่วนตัว</option>
+          <option value="uploadpic">UPLOAD A PHOTO</option>
+          <option value="stat">สถิติ</option>
+          <option value="logout">LOGOUT</option>
+      </select>
+  </div> -->
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+

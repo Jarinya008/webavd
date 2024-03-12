@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="back-button" (click)="goback()" >Back</button>
+    <div *ngIf="this.data.length == 0">
+        <p>Don't have your image</p>
+    </div>
+    <div *ngIf="this.data.length > 0">
+        <div *ngFor="let image of this.datapic">
+            <div style="display: flex;">
+            <img src="{{image.url_image}}" alt="" width="150px" height="110px">
+            <p>{{image.name_image}}</p>
+            <div style="margin-left: 30px;">
+                <p>total Score: {{image.score_image}}</p>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</body>
+</html>

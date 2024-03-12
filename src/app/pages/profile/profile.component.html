@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+   
+
+  <div >
+    <button class="back-button" (click)="goback()" >Back</button>
+    <h1 >แก้ไขข้อมูล</h1>
+  </div>
+
+
+
+
+  <!-- <button (click)="goback()">back</button>      -->
+  <!-- <form id="imageForm">
+      <label for="url_image">Image:</label>
+      <input type="file" id="url_image" name="url_image" accept="image/*" [(ngModel)]="image_avatar"
+          required><br><br>
+      <button type="button" class="btn btn-primary" (click)="updateProfile()">Upload</button><br>
+  </form> -->
+
+
+
+
+
+
+
+
+
+
+  <div style="display: flex; justify-content: center; align-items: center; height: 110vh; margin-top: -100px;">
+    <div style="width: 40%; background-color:rgba(219, 247, 249, 0.7); padding: 10px; border-radius: 0px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img src="{{this.data[0].image_avatar}}" style="height: 10vw; width: 10vw; border-radius: 50%; margin-bottom: 20px;" />
+        <p style="font-size: 2vw;">{{this.data[0].username}}</p>
+        <form  id="imageForm" style="width: 80%; display: flex; flex-direction: column; align-items: left;">
+            <!-- <button type="submit" class="btn btn-primary" style="margin-top: 25px; width: 30%; height: 40px; font-size: 15px; background-color: rgb(72, 187, 34); border: none; margin-left: auto; margin-right: auto;">แก้ไขรูป</button> -->
+            
+            <div style="display: flex; justify-content: center;">
+             <input type="file" id="url_image" name="url_image" accept="image/*" [(ngModel)]="image_avatar"
+          required  >   
+            </div>
+            <!-- <label for="username" style="margin-top: 5%;">Username:</label> -->
+            <!-- <input id="username" class="form-control" type="text" formControlName="username" placeholder=" Username" #username style="margin-bottom: 10px; width: 100%; height: 40px; padding: 5px; background-color: rgba(217, 217, 217, 0.79); border: none;"><br>
+            <label for="password" style="display: flex; align-items: center;">New Password:</label>
+            <input id="password" class="form-control" type="password" formControlName="password" placeholder="New Password" #password style="margin-bottom: 10px; width: 100%; height: 40px; padding: 5px; background-color: rgba(217, 217, 217, 0.79); border: none;"><br>
+            <label for="password" style="text-align: center;">ยืนยัน Password เดิม:</label>
+            <input id="password" class="form-control" type="password" formControlName="password" placeholder="Old Password" #password style="margin-bottom: 10px; width: 100%; height: 40px; padding: 5px; background-color: rgba(217, 217, 217, 0.79); border: none;"><br> -->
+        </form>
+        <button type="submit" class="btn btn-primary" style="margin-top: 25px; width: 40%; height: 40px; font-size: 20px; background-color: rgb(228, 197, 41); border: none; "  (click)="updateProfile()">แก้ไข</button>
+    </div>
+</div>
+</body>
+</html>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--   
+<button (click)="goback()">back</button>     
+<form id="imageForm">
+    <label for="url_image">Image:</label>
+    <input type="file" id="url_image" name="url_image" accept="image/*" [(ngModel)]="image_avatar"
+        required><br><br>
+    <button type="button" class="btn btn-primary" (click)="updateProfile()">Upload</button><br>
+</form> -->
+

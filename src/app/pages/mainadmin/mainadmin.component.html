@@ -1,0 +1,115 @@
+<!-- 
+<p>mainadmin works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div *ngIf="data == ''">
+        <div class="container">
+            <mat-toolbar>
+                <span style="color: rgb(103, 68, 29); font-size: 2vw; font-weight: bold;">FAJI ANIMALS</span>
+                <div style="display: flex;">
+                <span style="font-size: 1.5vw; color: rgb(103, 68, 29); margin-right: 2vw;">{{ data[0].username }}</span>
+                <img src="{{this.data[0].image_avatar}}" style="height: 3vw; width: 3vw; border-radius: 50%; margin-right: 2vw;" />
+        
+                <div style="background-color: rgb(213, 207, 198);">
+                    <select id="menu" name="menu" (click)="goToPage()" style="background-color: rgb(213, 207, 198); border: none; text-align: center; color: rgb(103, 68, 29);">
+                        <option value="control">control</option>
+                        <option value="stat">สถิติ</option>
+                        <option value="logout">LOGOUT</option>
+                    </select>
+                </div>
+            </div>
+                
+        </mat-toolbar>
+        </div>
+        <h1 >ผู้ใช้งาน</h1>
+
+        <div *ngFor="let user of datauser">
+            
+          <div style="display: flex; align-items: center; justify-content: center;margin-top: 2vw;">
+            <img src="{{user.image_avatar}}" style="height: 10vw; width: 10vw; border-radius: 50%; margin-right: 2vw;" />
+            <span style="display: inline-block; text-align: center; font-size: 2vw ; ">{{user.username}}</span>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    
+    <div *ngIf="data == ''">
+        <div class="container">
+        </div>
+    </div>
+    <div *ngIf="data.length > 0">
+        <h1>{{ data[0].username }}</h1>
+        <div>
+            <select id="menu" name="menu" (click)="goToPage()">
+                <option value="control">control</option>
+                <option value="stat">สถิติ</option>
+                <option value="logout">LOGOUT</option>
+            </select>
+        </div>
+
+        <div *ngFor="let user of datauser">
+            <div style="display: flex;">
+                <img src="{{user.image_avatar}}" alt="" width="150px">
+            <p>{{user.username}}</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
