@@ -31,6 +31,7 @@ export class VoteComponent implements OnInit{
   username: any;
   name_image: any;
   url_image: any;
+  Diff: any;
   
     constructor(private constants : Constants,private http : HttpClient,private formBuilder: FormBuilder,private sanitizer: DomSanitizer,private ActivatedRoute: ActivatedRoute,private router: Router){}
     users : UserGet[] = [];
@@ -41,6 +42,7 @@ export class VoteComponent implements OnInit{
     data: any;
     randompic:any[]=[];
     id_imagevote:number = 0;
+
     ngOnInit(): void {
 
       this.randomimage();
@@ -57,6 +59,7 @@ export class VoteComponent implements OnInit{
       }      
 
       console.log(this.data[0].image_avatar);
+      this.diff();
       
     }
 
@@ -66,6 +69,16 @@ export class VoteComponent implements OnInit{
     stra:string = '';
     strb:string = '';
     forwait:number = 0;
+
+    diff(){
+      const urlvote = this.constants.API_ENDPOINT + '/user/look/diff/top';
+      this.http.get(urlvote).subscribe((rankdif: any)=>{
+        this.Diff = rankdif;
+        console.log("Rank diff",this.Diff);
+        
+      });
+    }
+
     async voteimage(pic:HTMLInputElement){
       console.log(pic);
       const id_image1 = this.randompic[0].id_image;
