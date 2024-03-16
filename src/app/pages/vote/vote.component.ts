@@ -42,7 +42,7 @@ export class VoteComponent implements OnInit{
     data: any;
     randompic:any[]=[];
     id_imagevote:number = 0;
-
+    strtopten : string[] = [];
     ngOnInit(): void {
 
       this.randomimage();
@@ -63,22 +63,29 @@ export class VoteComponent implements OnInit{
       
     }
 
+    diff(){
+      const urlvote = this.constants.API_ENDPOINT + '/user/look/diff/top';
+      this.http.get(urlvote).subscribe((rankdif: any)=>{
+        this.Diff = rankdif;
+        console.log("Rank diff",this.Diff);
+        for(let i=0;i<this.Diff.length; i++){
+          if(this.Diff[i].diff < 0){
+            this.strtopten[i] = 'down';
+          }else{
+            this.strtopten[i] = 'up  +';
+          }   
+          console.log(this.strtopten[i]);      
+        }
+
+      });
+    }
+
     secondspic:number = 0;
     rpa:number = 0;
     rpb:number = 0;
     stra:string = '';
     strb:string = '';
     forwait:number = 0;
-
-    diff(){
-      const urlvote = this.constants.API_ENDPOINT + '/user/look/diff/top';
-      this.http.get(urlvote).subscribe((rankdif: any)=>{
-        this.Diff = rankdif;
-        console.log("Rank diff",this.Diff);
-        
-      });
-    }
-
     async voteimage(pic:HTMLInputElement){
       console.log(pic);
       const id_image1 = this.randompic[0].id_image;

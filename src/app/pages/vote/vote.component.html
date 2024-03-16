@@ -18,7 +18,7 @@
             <span style="color: rgb(103, 68, 29); font-size: 2vw; font-weight: bold;">FAJI ANIMALS</span>
             <div style="display: flex;">
                 <a
-                    style="font-size: 2vw; color: rgb(103, 68, 29); margin-right: 2vw; background-color: rgb(236, 199, 143); border: none;"
+                    style="font-size: 2vw; color: rgb(103, 68, 29); margin-right: 2%; background-color: rgb(236, 199, 143); border: none;"
                     routerLink="/userlog"login> login
             </a>
                     
@@ -26,82 +26,45 @@
         </mat-toolbar>
 
         <h1 style="color: rgb(103, 68, 29); text-align: center; margin-top: 30px;">VOTE ANIMAL</h1>
-        
-        
-        <!-- <div style="display: flex;justify-content: center;">
-            <div style="display: flex;">
-                <img class="animal-image" src="{{randompic[0].url_image}}" alt="animal 1" />
-                <h1 class="vs-text" style="margin-left: 2vw; margin-top: 6vw;">VS</h1>
-                <img class="animal-image" style="margin-left: 2vw;" src="{{randompic[1].url_image}}" alt="animal 2" />
-            </div>
-        </div>
-
-        <div style="display: flex;justify-content: center; font-size: 1.5vw;">
-            <span style="margin-right: 12vw;">
-                {{this.randompic[0].name_image}} 
-                ({{this.randompic[0].id_image}})
-                by  <span style="color: rgb(95, 165, 54);">{{this.randompic[0].username}}</span>
-            </span>
-            <span style="margin-left: 12vw;">
-                {{this.randompic[1].name_image}} 
-                ({{this.randompic[1].id_image}})
-                by <span style="color: rgb(95, 165, 54);">{{this.randompic[1].username}}</span>
-            </span>
-        </div> -->
        
-        <div style="display: flex;justify-content: center;">
-            <div style="display: flex; justify-content: center;">
-               
-                <div class="card" style="margin-right: 15px;">
-                    <div class="heading" style="text-align: center; margin-left: 5%;">
-                        <img class="animal-image"
-                            src="{{randompic[0].url_image}}" alt="animal 1" style="display: inline-block;" />
-                    </div>
-                
-                    <p style="text-align: center; font-size: 15px;">
-                         <span >{{this.randompic[0].name_image}}</span> 
-                        ({{this.randompic[0].id_image}}) <br>
-                         <span style="color: white;">by </span>
-                         <span style="color: rgb(95, 165, 54);">{{this.randompic[0].username}}</span><br>
-                       
-                        
-                    </p>
-                </div>
 
 
-                <!-- <h1 class="vs-text" style="margin-left: 2vw;margin-right: 30px; margin-top: 6vw;"> -->
-                    <img src="/assets/photo/VS (2).png" alt="" style="width: 17% ; height: 50%; text-align: center; margin-top: 4%;">
-                <!-- </h1>  -->
-
-                <div class="card" style="margin-left: 15px;">
-                    <div class="heading"   style="text-align: center; margin-left: 5%;">
-                        <img class="animal-image"
-                        src="{{randompic[1].url_image}}" alt="animal 2" style="display: inline-block;"/>
-                    </div>
-                    <p style="text-align: center; font-size: 15px;"> 
-                        <span>{{this.randompic[1].name_image}} </span>
-                        ({{this.randompic[1].id_image}}) <br>
-                        <span  style="color: white;">by </span> 
-                        <span style="color: rgb(95, 165, 54);">{{this.randompic[1].username}}</span>
-                  </p></div>                 
-            </div>
-        </div>
-
-        <div>
-            <h1 style="color: rgb(103, 68, 29); text-align: center; margin-top: 70px;">TOP 10 </h1>
-        </div>
-
-        <!-- ลำดับ -->
-        <div *ngFor="let toptoday of this.toptentoday">
-            <div style="display: flex;justify-content: center; ">        
-                <button >
-                    <img src="{{toptoday.image[0].url_image}}" alt="" width="100px" height="70px">&nbsp;
+            <div style="display: flex;justify-content: center;">
+                <div style="display: flex;  justify-content: center;">
+                   
+                    <div class="card" style="margin-right: 15px;">
+                        <div class="heading" style="text-align: center; margin-left: 5%;">
+                            <img class="animal-image" (click)="voteimage(this.randompic[0].id_image)"
+                                src="{{randompic[0].url_image}}" alt="animal 1" style="display: inline-block;" />
+                        </div>
                     
-                    {{toptoday.image[0].name_image}} &nbsp;
-                    {{toptoday.score_day}} &nbsp; คะแนน
-                </button>
+                        <p style="text-align: center; font-size: 15px;">
+                             <span >{{this.randompic[0].name_image}}</span> 
+                            ({{this.randompic[0].id_image}}) <br>
+                             <span style="color: white;">by </span>
+                             <span style="color: rgb(95, 165, 54);">{{this.randompic[0].username}}</span><br>
+                           
+                            
+                        </p>
+                    </div>
+  
+
+                    <img src="/assets/photo/VS (2).png" alt="" style="width: 17% ; height: 50%; text-align: center; margin-top: 4%;">
+                    
+                    <div class="card" style="margin-left: 15px;">
+                        <div class="heading"   style="text-align: center; margin-left: 5%;">
+                            <img class="animal-image" (click)="voteimage(this.randompic[1].id_image)" 
+                            src="{{randompic[1].url_image}}" alt="animal 2" style="display: inline-block;"/>
+                        </div>
+                        <p style="text-align: center; font-size: 15px;"> 
+                            <span>{{this.randompic[1].name_image}} </span>
+                            ({{this.randompic[1].id_image}}) <br>
+                            <span  style="color: white;">by </span> 
+                            <span style="color: rgb(95, 165, 54);">{{this.randompic[1].username}}</span>
+                      </p></div>                 
+                </div>
             </div>
-        </div>
+
 
 
     </div>
@@ -196,7 +159,13 @@
                         <img src="{{toptoday.url_image}}" alt="" width="100px" height="70px">&nbsp;
                         
                         {{toptoday.name_image}} &nbsp;
-                        {{toptoday.score_day}} &nbsp; คะแนน
+                        {{toptoday.score_day}} &nbsp; คะแนน &nbsp;&nbsp;{{this.strtopten[i]}}
+                        <div *ngIf="this.Diff[i].diff == null;else kkk">
+                            &nbsp; 0
+                        </div>
+                        <ng-template #kkk>
+                            {{this.Diff[i].diff}}  
+                        </ng-template>
                     </button>
                 </div>
             </div>
@@ -260,6 +229,79 @@
 
 
 
+ 
+        
+        <!-- <div style="display: flex;justify-content: center;">
+            <div style="display: flex;">
+                <img class="animal-image" src="{{randompic[0].url_image}}" alt="animal 1" />
+                <h1 class="vs-text" style="margin-left: 2vw; margin-top: 6vw;">VS</h1>
+                <img class="animal-image" style="margin-left: 2vw;" src="{{randompic[1].url_image}}" alt="animal 2" />
+            </div>
+        </div>
+
+        <div style="display: flex;justify-content: center; font-size: 1.5vw;">
+            <span style="margin-right: 12vw;">
+                {{this.randompic[0].name_image}} 
+                ({{this.randompic[0].id_image}})
+                by  <span style="color: rgb(95, 165, 54);">{{this.randompic[0].username}}</span>
+            </span>
+            <span style="margin-left: 12vw;">
+                {{this.randompic[1].name_image}} 
+                ({{this.randompic[1].id_image}})
+                by <span style="color: rgb(95, 165, 54);">{{this.randompic[1].username}}</span>
+            </span>
+        </div> -->
+       
+        <!-- <div style="display: flex;justify-content: center;">
+            <div style="display: flex; justify-content: center;">
+               
+                <div class="card" style="margin-right: 15px;">
+                    <div class="heading" style="text-align: center; margin-left: 5%;">
+                        <img class="animal-image"
+                            src="{{randompic[0].url_image}}" alt="animal 1" style="display: inline-block;" />
+                    </div>
+                
+                    <p style="text-align: center; font-size: 15px;">
+                         <span >{{this.randompic[0].name_image}}</span> 
+                        ({{this.randompic[0].id_image}}) <br>
+                         <span style="color: white;">by </span>
+                         <span style="color: rgb(95, 165, 54);">{{this.randompic[0].username}}</span><br>
+                       
+                        
+                    </p>
+                </div>
+
+
+
+                <div class="card" style="margin-left: 15px;">
+                    <div class="heading"   style="text-align: center; margin-left: 5%;">
+                        <img class="animal-image"
+                        src="{{randompic[1].url_image}}" alt="animal 2" style="display: inline-block;"/>
+                    </div>
+                    <p style="text-align: center; font-size: 15px;"> 
+                        <span>{{this.randompic[1].name_image}} </span>
+                        ({{this.randompic[1].id_image}}) <br>
+                        <span  style="color: white;">by </span> 
+                        <span style="color: rgb(95, 165, 54);">{{this.randompic[1].username}}</span>
+                  </p></div>                 
+            </div>
+        </div> -->
+
+        <!-- <div>
+            <h1 style="color: rgb(103, 68, 29); text-align: center; margin-top: 70px;">TOP 10 </h1>
+        </div>
+
+         ลำดับ
+        <div *ngFor="let toptoday of this.toptentoday">
+            <div style="display: flex;justify-content: center; ">        
+                <button >
+                    <img src="{{toptoday.image[0].url_image}}" alt="" width="100px" height="70px">&nbsp;
+                    
+                    {{toptoday.image[0].name_image}} &nbsp;
+                    {{toptoday.score_day}} &nbsp; คะแนน
+                </button>
+            </div>
+        </div> -->
 
 
 
