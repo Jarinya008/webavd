@@ -17,10 +17,10 @@
         <mat-toolbar>
             <span style="color: rgb(103, 68, 29); font-size: 2vw; font-weight: bold;">FAJI ANIMALS</span>
             <div style="display: flex;">
-                <button
+                <a
                     style="font-size: 2vw; color: rgb(103, 68, 29); margin-right: 2vw; background-color: rgb(236, 199, 143); border: none;"
-                    routerLink="/userlog"login>
-                </button>
+                    routerLink="/userlog"login> login
+            </a>
                     
             </div>
         </mat-toolbar>
@@ -50,9 +50,9 @@
         </div> -->
        
         <div style="display: flex;justify-content: center;">
-            <div style="display: flex;">
+            <div style="display: flex; justify-content: center;">
                
-                <div class="card">
+                <div class="card" style="margin-right: 15px;">
                     <div class="heading" style="text-align: center; margin-left: 5%;">
                         <img class="animal-image"
                             src="{{randompic[0].url_image}}" alt="animal 1" style="display: inline-block;" />
@@ -69,9 +69,11 @@
                 </div>
 
 
-                <h1 class="vs-text" style="margin-left: 2vw;margin-right: 30px; margin-top: 6vw;">VS</h1> 
+                <!-- <h1 class="vs-text" style="margin-left: 2vw;margin-right: 30px; margin-top: 6vw;"> -->
+                    <img src="/assets/photo/VS (2).png" alt="" style="width: 17% ; height: 50%; text-align: center; margin-top: 4%;">
+                <!-- </h1>  -->
 
-                <div class="card">
+                <div class="card" style="margin-left: 15px;">
                     <div class="heading"   style="text-align: center; margin-left: 5%;">
                         <img class="animal-image"
                         src="{{randompic[1].url_image}}" alt="animal 2" style="display: inline-block;"/>
@@ -145,10 +147,11 @@
 
             <!-- สุ่มภาพ -->
             <h1 style="color: rgb(103, 68, 29); text-align: center; margin-top: 30px;">VOTE ANIMAL</h1>
+
             <div style="display: flex;justify-content: center;">
-                <div style="display: flex;">
+                <div style="display: flex;  justify-content: center;">
                    
-                    <div class="card">
+                    <div class="card" style="margin-right: 15px;">
                         <div class="heading" style="text-align: center; margin-left: 5%;">
                             <img class="animal-image" (click)="voteimage(this.randompic[0].id_image)"
                                 src="{{randompic[0].url_image}}" alt="animal 1" style="display: inline-block;" />
@@ -165,9 +168,9 @@
                     </div>
   
 
-                    <h1 class="vs-text" style="margin-left: 2vw;margin-right: 30px; margin-top: 6vw;">VS</h1> 
-
-                    <div class="card">
+                    <img src="/assets/photo/VS (2).png" alt="" style="width: 17% ; height: 50%; text-align: center; margin-top: 4%;">
+                    
+                    <div class="card" style="margin-left: 15px;">
                         <div class="heading"   style="text-align: center; margin-left: 5%;">
                             <img class="animal-image" (click)="voteimage(this.randompic[1].id_image)" 
                             src="{{randompic[1].url_image}}" alt="animal 2" style="display: inline-block;"/>
@@ -186,12 +189,13 @@
             </div>
 
             <!-- ลำดับ -->
-            <div *ngFor="let toptoday of this.toptentoday">
+            <div *ngFor="let toptoday of this.toptentoday;let i = index">
                 <div style="display: flex;justify-content: center; ">        
                     <button >
-                        <img src="{{toptoday.image[0].url_image}}" alt="" width="100px" height="70px">&nbsp;
+                        #{{i+1}}
+                        <img src="{{toptoday.url_image}}" alt="" width="100px" height="70px">&nbsp;
                         
-                        {{toptoday.image[0].name_image}} &nbsp;
+                        {{toptoday.name_image}} &nbsp;
                         {{toptoday.score_day}} &nbsp; คะแนน
                     </button>
                 </div>

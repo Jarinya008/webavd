@@ -33,10 +33,27 @@ export class StatComponent {
     this.ActivatedRoute.paramMap.subscribe(params => {
       this.data = window.history.state.data;
       //console.log(this.data[0]);
+      this.scoreseven();
       this.printScore()
     });
   }
   scoreYesterday:any = '';
+  scoreseven(){
+    const url = this.constants.API_ENDPOINT + '/user/score/seven?username='+this.data[0].username;
+    console.log(url);
+    
+    this.http.get(url).subscribe((stat: any) => {
+      console.log(stat);
+      
+      this.scoreYesterday = stat;
+      for(let i=0;i<this.scoreYesterday.length;i++){
+        this.scoreYesterday[i].url_image = this.constants.API_ENDPOINT+stat[i].url_image;
+        //console.log(this.randompic[i]);
+        
+      }
+      console.log(this.scoreYesterday); // แสดงฟังก์ชัน randomimage
+    });
+  }
   printScore(){
     const urlall = this.constants.API_ENDPOINT+'/user/manage/yourimage?username='+this.data[0].username;
     console.log(urlall);

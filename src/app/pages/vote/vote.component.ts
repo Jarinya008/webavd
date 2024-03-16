@@ -70,6 +70,10 @@ export class VoteComponent implements OnInit{
       console.log(pic);
       const id_image1 = this.randompic[0].id_image;
       const id_image2 = this.randompic[1].id_image;
+      console.log(id_image1);
+      console.log(id_image2);
+      
+      
       let point1:number;
       let point2:number;
       const ra = this.randompic[0].score_image;
@@ -130,10 +134,14 @@ export class VoteComponent implements OnInit{
     toptenyesterday:any = '';
     topten(){
       const urltop = this.constants.API_ENDPOINT + '/user/topten/today';
+      console.log(urltop);
+      
       this.http.get(urltop).subscribe((toptoday: any) => {
+        console.log(toptoday);
+        
         this.toptentoday = toptoday;
         for(let i=0;i<this.toptentoday.length;i++){
-          this.toptentoday[i].image[0].url_image = this.constants.API_ENDPOINT+toptoday[i].image[0].url_image;
+          this.toptentoday[i].url_image = this.constants.API_ENDPOINT+toptoday[i].url_image;
           //console.log(this.randompic[i]);
           
         }

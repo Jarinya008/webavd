@@ -1,5 +1,5 @@
 <html lang="en">
-<body>
+<body style="background-color:rgba(240, 214, 176, 1) ;">
 
 
 
@@ -17,17 +17,20 @@
 
 
     <div style="display: flex; justify-content: center; ">
-        <div *ngFor="let pic of datapic"   style="position: relative; margin-right: 10px;">
+        <div *ngFor="let pic of datapic"   style="position: relative; margin-right: 10px; margin-top: 5%;">
             <img  src="{{pic.url_image}}" alt="" class="im">
             <button style="position: absolute; top: -30px; right: -20px; background-color: red; color: aliceblue;margin-right: 20px;  margin-top: 30px;" (click)="deletepic(pic.id_image)">x</button>
             <p style="margin-left: 110px;">{{pic.name_image}}</p>
             
         </div>  
     </div>
-<div style="display: flex; justify-content: center; ">
-    
+
+
+
+<!-- <div style="display: flex; justify-content: center; ">
     <div *ngIf="datapic.length < 5" >
-    <form id="imageForm">
+      
+        <form id="imageForm">
         <input type="hidden" id="username" name="username" [(ngModel)]="username"><br><br>
         <label for="name_image">Image Name:</label>
         <input type="text" id="name_image" name="name_image" [(ngModel)]="name_image" required><br><br>
@@ -37,7 +40,32 @@
         <button type="button" class="btn btn-primary" (click)="upload()" class="back-button1" style="display: flex;" >Upload</button><br>
     </form>
     </div>  
+</div> -->
+
+
+
+<div style="display: flex; justify-content: center; ">
+    <div *ngIf="datapic.length < 5" class="card shadow" >
+      
+        <form id="imageForm">
+        <h2 style="text-align: center;">Upload a File</h2>
+        <!-- <span style="text-align: center;">Select your file to upload.</span>  -->
+        &nbsp; <label for="url_image" >Image:</label>
+        <input type="file" id="url_image" name="url_image" accept="image/*" [(ngModel)]="url_image" required>
+        <input type="hidden" id="username" name="username" [(ngModel)]="username"><br><br>
+        &nbsp; <label for="name_image">Image Name:</label>
+        <input type="text" id="name_image" name="name_image" [(ngModel)]="name_image" required><br><br>
+        
+        
+        
+        <button type="button" class="btn btn-primary" (click)="upload()" class="back-button1" style="display: flex;" >Upload</button><br>
+    </form>
+    </div>  
 </div>
+
+
+
+
 
 </body>
 </html>
