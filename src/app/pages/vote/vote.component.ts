@@ -88,6 +88,8 @@ export class VoteComponent implements OnInit{
     forwait:number = 0;
     point1:number = 0;
     point2:number = 0;
+    old_scorea:number = 0;
+    old_scoreb:number = 0;
     async voteimage(pic:HTMLInputElement){
       console.log(pic);
       const id_image1 = this.randompic[0].id_image;
@@ -98,6 +100,8 @@ export class VoteComponent implements OnInit{
       
       //let point1:number;
       //let point2:number;
+      this.old_scorea = this.randompic[0].score_image;
+      this.old_scoreb = this.randompic[1].score_image;
       const ra = this.randompic[0].score_image;
       const rb = this.randompic[1].score_image;
       if(pic == this.randompic[0].id_image){
@@ -112,7 +116,7 @@ export class VoteComponent implements OnInit{
       console.log("ea=" + ea);
       console.log("eb=" + eb);
       this.rpa = ra + 32 * (this.point1 - ea);
-      this.rpb = rb + 32 * (this.point1 - eb);
+      this.rpb = rb + 32 * (this.point2 - eb);
 
         //location.reload();
         //this.voteimage(pic);
@@ -130,10 +134,12 @@ export class VoteComponent implements OnInit{
         const urlvote = this.constants.API_ENDPOINT + '/voteimage/elo';
 
         this.http.post(urlvote, postData).subscribe({
+          
           next: (res) => {
             // ตอบสนองจากเซิร์ฟเวอร์ที่ส่งกลับมา
+            
+            alert('correct vote!!\nwait 2 seconds for vote image');
             console.log(res);
-            alert('correct vote');
           },
           error: (err) => {
             // จัดการข้อผิดพลาดที่เกิดขึ้น
@@ -213,32 +219,37 @@ export class VoteComponent implements OnInit{
     //     this.randomimage();
     // }
     async delay(ms: number) {
-      alert('correct vote!!\nwait 2 seconds for vote image');
-      const overlay = document.createElement('div');
-      
-      overlay.style.position = 'fixed';
-      overlay.style.top = '0';
-      overlay.style.left = '0';
-      overlay.style.width = '100%';
-      overlay.style.height = '100%';
-      overlay.style.background = 'rgba(0, 0, 0, 0.5)'; // Transparent black
-      overlay.style.zIndex = '9999'; // Ensure the overlay is on top of everything
       if(this.point1 > 0){
-        overlay.textContent = '+'+this.rpa+'('+this.randompic[0].name_image+' by '+this.randompic[0].username+')\n'+
-                              '-'+this.rpb+'('+this.randompic[1].name_image+' by '+this.randompic[1].username+')';
+        alert(this.randompic[0].name_image+' win\nold score :'+this.old_scorea+'\nnew score :'+this.rpa);
       }else{
-        overlay.textContent = '-'+this.rpa+'('+this.randompic[0].name_image+' by '+this.randompic[0].username+')\n'+
-                              '+'+this.rpb+'('+this.randompic[1].name_image+' by '+this.randompic[1].username+')';
+        alert(this.randompic[1].name_image+' win\nold score :'+this.old_scoreb+'\nnew score :'+this.rpb);
       }
       
-      document.body.appendChild(overlay);
+      // const overlay = document.createElement('div');
+      
+      // overlay.style.position = 'fixed';
+      // overlay.style.top = '0';
+      // overlay.style.left = '0';
+      // overlay.style.width = '100%';
+      // overlay.style.height = '100%';
+      // overlay.style.background = 'rgba(0, 0, 0, 0.5)'; // Transparent black
+      // overlay.style.zIndex = '9999'; // Ensure the overlay is on top of everything
+      // if(this.point1 > 0){
+      //   overlay.textContent = '+'+this.rpa+'('+this.randompic[0].name_image+' by '+this.randompic[0].username+')\n'+
+      //                         '-'+this.rpb+'('+this.randompic[1].name_image+' by '+this.randompic[1].username+')';
+      // }else{
+      //   overlay.textContent = '-'+this.rpa+'('+this.randompic[0].name_image+' by '+this.randompic[0].username+')\n'+
+      //                         '+'+this.rpb+'('+this.randompic[1].name_image+' by '+this.randompic[1].username+')';
+      // }
+      
+      // document.body.appendChild(overlay);
 
-      await new Promise((resolve) => setTimeout(resolve, ms));           
-      // Re-enable user interaction and remove the overlay
-      //overlay.parentNode.removeChild(overlay);
-      if (overlay.parentNode) {
-        overlay.parentNode.removeChild(overlay);
-      }
+      // await new Promise((resolve) => setTimeout(resolve, ms));           
+      // // Re-enable user interaction and remove the overlay
+      // //overlay.parentNode.removeChild(overlay);
+      // if (overlay.parentNode) {
+      //   overlay.parentNode.removeChild(overlay);
+      // }
       // Re-enable user interaction with the HTML elements here
     }
     randomimage() {
