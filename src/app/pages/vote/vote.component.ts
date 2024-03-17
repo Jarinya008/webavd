@@ -225,7 +225,7 @@ export class VoteComponent implements OnInit{
       overlay.style.zIndex = '9999'; // Ensure the overlay is on top of everything
       if(this.rpa > this.rpb){
         overlay.textContent = '+'+this.rpa+'('+this.randompic[0].name_image+' by '+this.randompic[0].username+')\n'+
-                              '-'+this.rpa+'('+this.randompic[1].name_image+' by '+this.randompic[1].username+')';
+                              '-'+this.rpb+'('+this.randompic[1].name_image+' by '+this.randompic[1].username+')';
       }else{
         overlay.textContent = '-'+this.rpa+'('+this.randompic[0].name_image+' by '+this.randompic[0].username+')\n'+
                               '+'+this.rpb+'('+this.randompic[1].name_image+' by '+this.randompic[1].username+')';
