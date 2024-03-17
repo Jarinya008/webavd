@@ -221,7 +221,7 @@ export class VoteComponent implements OnInit{
       overlay.style.left = '0';
       overlay.style.width = '100%';
       overlay.style.height = '100%';
-      //overlay.style.background = 'rgba(0, 0, 0, 0.5)'; // Transparent black
+      overlay.style.background = 'rgba(0, 0, 0, 0.5)'; // Transparent black
       overlay.style.zIndex = '9999'; // Ensure the overlay is on top of everything
       if(this.rpa > this.rpb){
         overlay.textContent = '+'+this.rpa+'('+this.randompic[0].name_image+' by '+this.randompic[0].username+')\n'+
