@@ -86,6 +86,8 @@ export class VoteComponent implements OnInit{
     stra:string = '';
     strb:string = '';
     forwait:number = 0;
+    point1:number = 0;
+    point2:number = 0;
     async voteimage(pic:HTMLInputElement){
       console.log(pic);
       const id_image1 = this.randompic[0].id_image;
@@ -94,25 +96,23 @@ export class VoteComponent implements OnInit{
       console.log(id_image2);
       
       
-      let point1:number;
-      let point2:number;
+      //let point1:number;
+      //let point2:number;
       const ra = this.randompic[0].score_image;
       const rb = this.randompic[1].score_image;
       if(pic == this.randompic[0].id_image){
-          point1 = 1;
-          point2 = 0;
-          this.stra = 'win';
-          this.strb = 'lose';
+          this.point1 = 1;
+          this.point2 = 0;
       }else{
-        point1 = 0;
-        point2 = 1;
+        this.point1 = 0;
+        this.point2 = 1;
       }
       const ea = 1 / (1 + Math.pow(10, (rb - ra) / 400));
       const eb = 1 / (1 + Math.pow(10, (ra - rb) / 400));
       console.log("ea=" + ea);
       console.log("eb=" + eb);
-      this.rpa = ra + 32 * (point1 - ea);
-      this.rpb = rb + 32 * (point2 - eb);
+      this.rpa = ra + 32 * (this.point1 - ea);
+      this.rpb = rb + 32 * (this.point1 - eb);
 
         //location.reload();
         //this.voteimage(pic);
@@ -121,8 +121,8 @@ export class VoteComponent implements OnInit{
         const postData = {
           id_image1: id_image1,
           id_image2: id_image2,
-          point1: point1,
-          point2: point2, // ใช้ index 1 เนื่องจากมีภาพสุ่มอีกตัว
+          point1: this.point1,
+          point2: this.point1, // ใช้ index 1 เนื่องจากมีภาพสุ่มอีกตัว
           rpa: this.rpa,
           rpb: this.rpb
 
@@ -223,7 +223,7 @@ export class VoteComponent implements OnInit{
       overlay.style.height = '100%';
       overlay.style.background = 'rgba(0, 0, 0, 0.5)'; // Transparent black
       overlay.style.zIndex = '9999'; // Ensure the overlay is on top of everything
-      if(this.rpa > this.rpb){
+      if(this.point1 > 0){
         overlay.textContent = '+'+this.rpa+'('+this.randompic[0].name_image+' by '+this.randompic[0].username+')\n'+
                               '-'+this.rpb+'('+this.randompic[1].name_image+' by '+this.randompic[1].username+')';
       }else{
