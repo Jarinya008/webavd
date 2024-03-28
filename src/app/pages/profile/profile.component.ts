@@ -66,7 +66,15 @@ export class ProfileComponent {
   //   );
   // }
   updateProfile() {
-    const url = this.constants.API_ENDPOINT + '/upload/updateavatar/' + this.data[0].username;
+    // console.log(username);
+    
+    let url;
+    //if(username != null){
+      //url = this.constants.API_ENDPOINT + '/upload/updateavatar/' + username.toString();
+    //}else{
+      url = this.constants.API_ENDPOINT + '/upload/updateavatar/' + this.data[0].username;
+    //}
+    
     const formData = new FormData();
     const fileInput = <HTMLInputElement>document.getElementById('url_image'); // Access the file input element
     

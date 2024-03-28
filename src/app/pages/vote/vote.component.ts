@@ -51,7 +51,7 @@ export class VoteComponent implements OnInit{
       this.ActivatedRoute.paramMap.subscribe(params => {
         this.data = window.history.state.data;
         //this.printData();
-        this.data[0].image_avatar = this.constants.API_ENDPOINT +this.data[0].image_avatar;
+        //this.data[0].image_avatar = this.constants.API_ENDPOINT +this.data[0].image_avatar;
         
       });
       if(this.data == undefined){

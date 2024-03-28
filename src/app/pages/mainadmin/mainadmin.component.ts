@@ -49,11 +49,6 @@ export class MainadminComponent implements OnInit {
       console.log(picall);
       console.log(picall.length);
       this.datauser = picall;
-      for(let i=0;i<this.datauser.length;i++){
-        this.datauser[i].image_avatar = this.constants.API_ENDPOINT+picall[i].image_avatar;
-        console.log(this.datauser[i]);
-        
-      }
     });
   }
   logout(){
