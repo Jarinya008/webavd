@@ -143,7 +143,8 @@
                             ({{this.randompic[1].id_image}}) <br>
                             <span  style="color: white;">by </span> 
                             <span style="color: rgb(95, 165, 54);">{{this.randompic[1].username}}</span>
-                      </p></div>                 
+                      </p>
+                    </div>                 
                 </div>
             </div>
 
@@ -154,7 +155,7 @@
             <!-- ลำดับ -->
             <div *ngFor="let toptoday of this.toptentoday;let i = index">
                 <div style="display: flex;justify-content: center; ">        
-                    <button >
+                    <button (click)="gotostattop(toptoday.username)" >
                         #{{i+1}}
                         <img src="{{toptoday.url_image}}" alt="" width="100px" height="70px">&nbsp;
                         

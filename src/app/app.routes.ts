@@ -7,6 +7,7 @@ import { MainadminComponent } from './pages/mainadmin/mainadmin.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StatComponent } from './pages/stat/stat.component';
 import { UsersignComponent } from './pages/usersign/usersign.component';
+import { StattopComponent } from './pages/stattop/stattop.component';
 
 export const routes: Routes = [
     {path: '', component: VoteComponent },
@@ -17,4 +18,5 @@ export const routes: Routes = [
     {path: 'profile', component: ProfileComponent },
     {path: 'stat', component: StatComponent },
     {path: 'usersign', component: UsersignComponent },
+    {path: 'stattop', component: StattopComponent },
 ];

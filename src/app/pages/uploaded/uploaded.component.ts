@@ -88,11 +88,11 @@ export class UploadedComponent implements OnInit{
         console.log(picall);
         console.log(picall.length);
         this.datapic = picall;
-        for(let i=0;i<this.datapic.length;i++){
-          this.datapic[i].url_image = this.constants.API_ENDPOINT+picall[i].url_image;
-          console.log(this.datapic[i]);
+        // for(let i=0;i<this.datapic.length;i++){
+        //   this.datapic[i].url_image = this.constants.API_ENDPOINT+picall[i].url_image;
+        //   console.log(this.datapic[i]);
           
-        }
+        // }
       });
       
     }

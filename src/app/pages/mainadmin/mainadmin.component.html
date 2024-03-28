@@ -88,11 +88,10 @@
 <body>
 
     
-    <div *ngIf="data == ''">
+    
         <div class="container">
         </div>
-    </div>
-    <div *ngIf="data.length > 0">
+
         <h1>{{ data[0].username }}</h1>
         <div>
             <select id="menu" name="menu" (click)="goToPage()">
@@ -103,12 +102,13 @@
         </div>
 
         <div *ngFor="let user of datauser">
+            <button  (click)="gotostattop(user.username)" >
             <div style="display: flex;">
                 <img src="{{user.image_avatar}}" alt="" width="150px">
             <p>{{user.username}}</p>
             </div>
+            </button>
         </div>
-    </div>
 
 </body>
 

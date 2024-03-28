@@ -86,4 +86,8 @@ export class MainadminComponent implements OnInit {
           break;
   }
   }
+  gotostattop(username: HTMLInputElement){
+    console.log(username);
+    this.router.navigate(['/stattop'], { state: { data: username.toString() } });
+   } 
 }

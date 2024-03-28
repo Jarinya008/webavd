@@ -28,6 +28,7 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrl: './vote.component.scss'
 })
 export class VoteComponent implements OnInit{
+[x: string]: any;
   username: any;
   name_image: any;
   url_image: any;
@@ -166,11 +167,11 @@ export class VoteComponent implements OnInit{
         console.log(toptoday);
         
         this.toptentoday = toptoday;
-        for(let i=0;i<this.toptentoday.length;i++){
-          this.toptentoday[i].url_image = this.constants.API_ENDPOINT+toptoday[i].url_image;
-          //console.log(this.randompic[i]);
+        // for(let i=0;i<this.toptentoday.length;i++){
+        //   this.toptentoday[i].url_image = this.constants.API_ENDPOINT+toptoday[i].url_image;
+        //   //console.log(this.randompic[i]);
           
-        }
+        // }
         console.log(this.toptentoday); // แสดงฟังก์ชัน randomimage
       });
     }
@@ -220,9 +221,11 @@ export class VoteComponent implements OnInit{
     // }
     async delay(ms: number) {
       if(this.point1 > 0){
-        alert(this.randompic[0].name_image+' win\nold score :'+this.old_scorea+'\nnew score :'+this.rpa);
+        alert(this.randompic[0].name_image+' win\nold score :'+this.old_scorea+'\nnew score :'+this.rpa+
+        '\n'+this.randompic[1].name_image+' loses\nold score :'+this.old_scoreb+'\nnew score :'+this.rpb);
       }else{
-        alert(this.randompic[1].name_image+' win\nold score :'+this.old_scoreb+'\nnew score :'+this.rpb);
+        alert(this.randompic[1].name_image+' win\nold score :'+this.old_scoreb+'\nnew score :'+this.rpb+
+        '\n'+this.randompic[0].name_image+' loses\nold score :'+this.old_scorea+'\nnew score :'+this.rpa);
       }
       
       // const overlay = document.createElement('div');
@@ -259,11 +262,11 @@ export class VoteComponent implements OnInit{
       // ใช้ HTTP GET เพื่อเรียกข้อมูลรูปภาพ
       this.http.get(urlall).subscribe((picran: any) => {
         this.randompic = picran.pic1;
-        for(let i=0;i<this.randompic.length;i++){
-          this.randompic[i].url_image = this.constants.API_ENDPOINT+this.randompic[i].url_image;
-          //console.log(this.randompic[i]);
+        // for(let i=0;i<this.randompic.length;i++){
+        //   this.randompic[i].url_image = this.constants.API_ENDPOINT+this.randompic[i].url_image;
+        //   //console.log(this.randompic[i]);
           
-        }
+        // }
       console.log(this.randompic); // แสดงฟังก์ชัน randomimage
       });
     }
@@ -358,7 +361,10 @@ export class VoteComponent implements OnInit{
   }
   }
   
-  
+ gotostattop(username: HTMLInputElement){
+  console.log(username);
+  this.router.navigate(['/stattop'], { state: { data: username.toString() } });
+ } 
   }
 
   

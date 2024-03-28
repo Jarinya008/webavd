@@ -1,0 +1,162 @@
+.simple-bar-chart{
+    --line-count: 10;
+    --line-color: currentcolor;
+    --line-opacity: 0.25;
+    --item-gap: 1%;
+    --item-default-color: #060606;
+    // display: flex;
+    // flex-direction: row;
+    height: 13rem;
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--item-gap);
+    align-items: end;
+    padding-inline: var(--item-gap);
+    --padding-block: 1.5rem; /*space for labels*/
+    padding-block: var(--padding-block);
+    position: relative;
+    isolation: isolate;
+  }
+  
+  .simple-bar-chart::after{
+    content: "";
+    position: absolute;
+    inset: var(--padding-block) 0;
+    z-index: -1;
+    --line-width: 1px;
+    --line-spacing: calc(100% / var(--line-count));
+    background-image: repeating-linear-gradient(to top, transparent 0 calc(var(--line-spacing) - var(--line-width)), var(--line-color) 0 var(--line-spacing));
+    box-shadow: 0 var(--line-width) 0 var(--line-color);
+    opacity: var(--line-opacity);
+  }
+  .simple-bar-chart > .item{ 
+    // width: 120px; /* ปรับความกว้างของแท่งกราฟตามต้องการ */
+  
+    // max-height: 100px; /* กำหนดความสูงสูงสุดของแท่งกราฟ */
+    // overflow: hidden;
+    height: calc(1% * var(--val));
+    height: calc(0.1px * var(--val)); /* ปรับค่าตัวหารให้เหมาะสม */
+    background-color: var(--clr, var(--item-default-color));
+    position: relative;
+    animation: item-height 1s ease forwards
+   
+  }
+  @keyframes item-height { from { height: 0 } }
+  
+  .simple-bar-chart > .item > * { position: absolute; text-align: center }
+  .simple-bar-chart > .item > .label { top: 100%; right: 0; left: 0; }
+  .simple-bar-chart > .item > .value { bottom: 100%; right: 0; left: 0; }
+  
+  
+  /* demo */
+   
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('/assets/photo/hbg.jpg');
+    background-size: cover;
+    filter: blur(10px); 
+    
+  }
+  
+  body {
+    overflow-y: auto;
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }
+  
+  body > * { max-width: 100rem; }
+  
+  
+  
+  button {
+    border: none;
+  }
+  
+  .c-button {
+    background: linear-gradient(140deg, rgba(75, 118, 200, 1) 0%, rgba(31, 70, 145, 1) 100%);
+    border-radius: 45px;
+    font-size: 25px;
+    text-align: left;
+    padding: 11px 0px 11px 0px;
+    border: 4px solid rgb(37, 37, 37) !important;
+    border-style: outset;
+    box-shadow: -6px -5px 18px rgba(255, 255, 255, 0.1);
+    transform: scale(0.7);
+    cursor: pointer;
+  }
+  
+  .c-button .c-main {
+    border-radius: 45px;
+    color: rgb(0, 0, 0);
+    padding: 11px 25px 11px 2px;
+    box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0);
+    transition: all 0.5s ease-in-out;
+    border: 1px solid transparent;
+  }
+  
+  .c-ico .c-blur {
+    background: linear-gradient(318deg, rgba(75, 118, 200, 1) 0%, rgba(31, 70, 145, 1) 100%);
+    border-radius: 100%;
+    margin-left: 0;
+    padding: 8px 23px;
+    filter: blur(1px);
+    text-align: center;
+  }
+  
+  .c-ico {
+    position: relative;
+    margin-right: 20px;
+  }
+  
+  .c-ico .ico-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Hovering */
+  
+  .c-button .c-main:hover {
+    box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0.6);
+    border: 1px solid rgba(26, 26, 26,0.5);
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .button {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #fff;
+   }
+   
+   .button > svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+   }
+   
+   .button:hover > svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+   }
+   
+   .button:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #252424;
+    transform: translateY(-2px);
+   }
